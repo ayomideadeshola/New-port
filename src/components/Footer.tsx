@@ -1,31 +1,77 @@
-import { sections } from '../data';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowUp } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { navLinks, socials } from '../data';
 
 export default function Footer() {
+	const [showBackToTop, setShowBackToTop] = useState(false);
+
+	useEffect(() => {
+		function handleScroll() {
+			setShowBackToTop(window.scrollY > 500);
+		}
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
 	return (
-		<footer className="border-t border-gray-800 bg-gray-950 py-14 text-white">
-			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-				<div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-					<div className="text-center md:text-left">
-						<div className="mb-2 flex items-center justify-center gap-2 md:justify-start">
-							<div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-blue-500">
-								<span className="text-xs font-black text-white">A</span>
-							</div>
-							<span className="bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-xl font-black tracking-tight text-transparent">
-								Ayomide
-							</span>
-						</div>
-						<p className="text-sm text-gray-500">Fullstack developer — shipping quality products.</p>
+		<>
+			<footer className="border-t border-white/10 py-16">
+				<div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-6 text-center lg:px-8">
+					<span className="font-mono text-2xl font-bold tracking-tight text-text">
+						AY<span className="text-accent">.</span>
+					</span>
+
+					<div className="flex flex-wrap justify-center gap-6">
+						{navLinks.map((link) => (
+							<Link
+								key={link.path}
+								to={link.path}
+								data-cursor-hover
+								className="link-underline text-sm text-text-secondary hover:text-text"
+							>
+								{link.label}
+							</Link>
+						))}
 					</div>
-					<div className="flex gap-6 text-sm text-gray-500">
-						{sections.map((s) => (
-							<a key={s} href={`#${s}`} className="font-medium capitalize transition-colors hover:text-white">
-								{s}
+
+					<div className="flex gap-3">
+						{socials.map((social) => (
+							<a
+								key={social.id}
+								href={social.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								data-cursor-hover
+								className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-xs font-mono text-text-secondary transition-colors hover:border-accent/50 hover:text-accent"
+							>
+								{social.id[0].toUpperCase()}
 							</a>
 						))}
 					</div>
-					<div className="text-xs font-medium text-gray-600">© 2024 Ayomide Adeshola. All rights reserved.</div>
+
+					<p className="font-mono text-xs text-text-muted">© 2026 Ayomide Adeshola. All rights reserved.</p>
 				</div>
-			</div>
-		</footer>
+			</footer>
+
+			<AnimatePresence>
+				{showBackToTop && (
+					<motion.button
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: 20 }}
+						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+						data-cursor-hover
+						aria-label="Back to top"
+						className="glass fixed right-6 bottom-6 z-40 flex h-12 w-12 items-center justify-center rounded-full text-text-secondary transition-colors hover:text-accent"
+					>
+						<motion.span animate={{ y: [0, -3, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>
+							<ArrowUp size={18} />
+						</motion.span>
+					</motion.button>
+				)}
+			</AnimatePresence>
+		</>
 	);
 }

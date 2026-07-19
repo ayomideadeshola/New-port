@@ -1,40 +1,84 @@
-import About from './components/About';
-import Contact from './components/Contact';
+import { AnimatePresence } from 'framer-motion';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import CustomCursor from './components/CustomCursor';
 import Footer from './components/Footer';
-import Hero from './components/Hero';
 import Nav from './components/Nav';
-import Projects from './components/Projects';
-import Services from './components/Services';
-import Stats from './components/Stats';
-import Testimonials from './components/Testimonials';
-import { ThemeProvider, useTheme } from './context/ThemeContext';
-
-function Page() {
-	const { darkMode } = useTheme();
-
-	return (
-		<div
-			className={`min-h-screen transition-colors duration-300 ${
-				darkMode ? 'dark bg-gray-950 text-white' : 'bg-white text-gray-900'
-			}`}
-		>
-			<Nav />
-			<Hero />
-			<Stats />
-			<About />
-			<Services />
-			<Projects />
-			<Testimonials />
-			<Contact />
-			<Footer />
-		</div>
-	);
-}
+import PageTransition from './components/PageTransition';
+import ParticleBackground from './components/ParticleBackground';
+import ScrollToTop from './components/ScrollToTop';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+import ProjectDetail from './pages/ProjectDetail';
+import Work from './pages/Work';
 
 export default function App() {
+	const location = useLocation();
+
 	return (
-		<ThemeProvider>
-			<Page />
-		</ThemeProvider>
+		<div className="relative min-h-screen bg-ink text-text">
+			<ParticleBackground />
+			<CustomCursor />
+			<ScrollToTop />
+			<Nav />
+
+			<div className="relative z-10">
+				<AnimatePresence mode="wait">
+					<Routes location={location} key={location.pathname}>
+						<Route
+							path="/"
+							element={
+								<PageTransition>
+									<Home />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/work"
+							element={
+								<PageTransition>
+									<Work />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/work/:slug"
+							element={
+								<PageTransition>
+									<ProjectDetail />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/about"
+							element={
+								<PageTransition>
+									<About />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="/contact"
+							element={
+								<PageTransition>
+									<Contact />
+								</PageTransition>
+							}
+						/>
+						<Route
+							path="*"
+							element={
+								<PageTransition>
+									<NotFound />
+								</PageTransition>
+							}
+						/>
+					</Routes>
+				</AnimatePresence>
+
+				<Footer />
+			</div>
+		</div>
 	);
 }
