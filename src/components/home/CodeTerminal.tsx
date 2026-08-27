@@ -33,9 +33,12 @@ export default function CodeTerminal() {
 	return (
 		<div className="glass w-full max-w-md rounded-2xl p-1 shadow-2xl shadow-accent/10">
 			<div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
-				<span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
-				<span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
-				<span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
+				<span className="h-2.5 w-2.5" style={{ backgroundImage: 'linear-gradient(110deg, #6366f1 40%, #818cf8 50%, #6366f1 60%)' }}
+				/>
+				<span className="h-2.5 w-2.5" style={{ backgroundImage: 'linear-gradient(110deg, #6366f1 40%, #818cf8 50%, #6366f1 60%)' }}
+				/>
+				<span className="h-2.5 w-2.5" style={{ backgroundImage: 'linear-gradient(110deg, #6366f1 40%, #818cf8 50%, #6366f1 60%)' }}
+				/>
 				<span className="ml-3 font-mono text-xs text-text-muted">profile.ts</span>
 			</div>
 			<pre className="overflow-x-auto p-5 font-mono text-[13px] leading-6">

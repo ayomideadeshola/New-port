@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Reveal } from '../components/motion/Reveal';
@@ -24,7 +24,8 @@ export default function ProjectDetail() {
 		<article>
 			<div className="relative h-[60vh] min-h-[420px] w-full overflow-hidden">
 				<img src={project.image} alt={project.title} className="h-full w-full object-cover" />
-				<div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/20" />
+				<div className="absolute inset-0 bg-ink/55" />
+				<div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40" />
 				<div className="absolute inset-0 flex items-end">
 					<div className="mx-auto w-full max-w-7xl px-6 pb-12 lg:px-8">
 						<Link
@@ -35,6 +36,18 @@ export default function ProjectDetail() {
 							<ArrowLeft size={14} /> Back to work
 						</Link>
 						<h1 className="text-4xl font-bold tracking-tight text-text md:text-6xl">{project.title}</h1>
+						{project.link !== '#' && (
+							<a
+								href={project.link}
+								target="_blank"
+								rel="noopener noreferrer"
+								data-cursor-hover
+								className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+							>
+								Visit live site
+								<ExternalLink size={15} />
+							</a>
+						)}
 					</div>
 				</div>
 			</div>

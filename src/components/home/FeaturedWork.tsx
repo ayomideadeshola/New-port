@@ -41,7 +41,7 @@ export default function FeaturedWork() {
 							<img
 								src={project.image}
 								alt={project.title}
-								className="h-full w-full object-cover brightness-[0.55] transition-all duration-500 group-hover:scale-105 group-hover:brightness-90"
+								className="h-full w-full object-cover object-top brightness-[0.55] transition-all duration-500 group-hover:scale-105 group-hover:brightness-90"
 							/>
 						</div>
 						<div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink via-ink/40 to-transparent p-6">

@@ -1,3 +1,11 @@
+import clemyImg from './assets/projects/clemy.jpeg';
+import ecomintImg from './assets/projects/ecomint.jpeg';
+import foodieorderImg from './assets/projects/foodieorder.jpeg';
+import joblistImg from './assets/projects/joblist.jpeg';
+import socialsyncImg from './assets/projects/socialsync.jpeg';
+import taskerImg from './assets/projects/tasker.jpeg';
+import vanlifeImg from './assets/projects/vanlife.jpeg';
+
 export interface Project {
 	id: number;
 	slug: string;
@@ -55,7 +63,7 @@ export const navLinks = [
 	{ label: 'Contact', path: '/contact' }
 ];
 
-export const filters = ['all', 'web', 'api', 'database', 'devops'];
+export const filters = ['all', 'fullstack', 'frontend', 'mobile'];
 
 export const contactSubjects = ['Project Inquiry', 'Collaboration', 'Just Saying Hi'];
 
@@ -86,155 +94,157 @@ export const techMarquee = [
 export const projects: Project[] = [
 	{
 		id: 1,
-		slug: 'ecommerce-platform',
-		title: 'E-Commerce Platform',
-		category: 'web',
-		year: '2023',
+		slug: 'socialsync',
+		title: 'SocialSync',
+		category: 'fullstack',
+		year: '2025',
 		size: 'wide',
-		image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&q=80',
+		image: socialsyncImg,
 		description:
-			'Full-stack e-commerce solution with real-time inventory, cart, Stripe payments and admin dashboard.',
-		tech: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
-		link: '#',
-		role: 'Lead Fullstack Engineer',
-		timeline: 'Jan 2023 — Apr 2023',
+			'Social media scheduling platform where users compose a post once, queue it, and manage everything from a single dashboard.',
+		tech: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+		link: 'https://socialsync-project.vercel.app/',
+		role: 'Fullstack Developer',
+		timeline: '2025',
 		challenge:
-			'The client\'s existing storefront couldn\'t handle flash-sale traffic spikes and had no real-time view of inventory across warehouses, leading to overselling.',
+			'Posting to several social platforms means living in several tabs, and there was no single place to draft content, line it up for later, and see what was already queued.',
 		solution:
-			'Rebuilt the storefront on Next.js with ISR for catalog pages, added a PostgreSQL-backed inventory ledger with row-level locking, and integrated Stripe for payments plus a custom admin dashboard for order and stock management.',
+			'Built the app around one composer and one dashboard — account sign-up and login, a post editor that holds content until its send time, and a dashboard that surfaces scheduled and published posts at a glance.',
 		results:
-			'Zero overselling incidents since launch, checkout completion up 22%, and the storefront now comfortably handles 10x traffic during flash sales.',
-		gallery: [
-			'https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&q=80',
-			'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80',
-			'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1200&q=80'
-		]
+			'Drafting, queueing and reviewing posts all happen in one place, so the whole publishing routine collapses into a single screen instead of a tab per network.',
+		gallery: [socialsyncImg]
 	},
 	{
 		id: 2,
-		slug: 'rest-api-gateway',
-		title: 'REST API Gateway',
-		category: 'api',
-		year: '2023',
+		slug: 'clemy-systems',
+		title: 'Clemy Systems LLC',
+		category: 'frontend',
+		year: '2025',
 		size: 'normal',
-		image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
+		image: clemyImg,
 		description:
-			'High-performance API gateway with auth, rate limiting, caching and auto-generated Swagger docs.',
-		tech: ['Node.js', 'Express', 'Redis', 'JWT'],
-		link: '#',
-		role: 'Backend Engineer',
-		timeline: 'Sep 2022 — Dec 2022',
+			'Corporate website for an Atlanta-based technology services firm, built around a rotating hero and clear service and project sections.',
+		tech: ['React', 'Tailwind CSS', 'Vercel'],
+		link: 'https://clemysystemllc.vercel.app/',
+		role: 'Frontend Developer',
+		timeline: '2025',
 		challenge:
-			'A growing microservice fleet had inconsistent auth, no shared rate limiting, and every team hand-rolled its own API docs.',
+			'The company needed a site that reads as established and makes it obvious what they do and how to reach them, without burying contact details behind a form.',
 		solution:
-			'Built a single Express-based gateway in front of all services with JWT auth, a Redis-backed sliding-window rate limiter, response caching, and Swagger docs generated straight from route schemas.',
+			'Designed a multi-section marketing site with an auto-rotating hero carousel, dedicated services and projects pages, and a persistent top bar carrying the address, phone number, email and social links.',
 		results:
-			'Handles 10,000 requests/sec at p99 under 40ms, cut duplicate auth code across services to zero, and onboarding time for new API consumers dropped from days to hours.',
-		gallery: [
-			'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
-			'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80'
-		]
+			'Every page keeps a call to action and direct contact details in view, so a visitor can go from landing to enquiry without hunting for the contact page.',
+		gallery: [clemyImg]
 	},
 	{
 		id: 3,
-		slug: 'realtime-chat-app',
-		title: 'Real-Time Chat App',
-		category: 'web',
-		year: '2022',
+		slug: 'eco-mint',
+		title: 'Eco Mint',
+		category: 'mobile',
+		year: '2025',
 		size: 'tall',
-		image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80',
+		image: ecomintImg,
 		description:
-			'Scalable real-time messaging platform with rooms, presence indicators and message persistence.',
-		tech: ['React', 'Socket.io', 'MongoDB', 'Redis'],
-		link: '#',
-		role: 'Fullstack Engineer',
-		timeline: 'Mar 2022 — Jul 2022',
+			'Mobile app design for a waste-collection service — onboarding flow, subscription plan tracking, payments and pickup scheduling.',
+		tech: ['React', 'Tailwind CSS', 'Mobile-first UI'],
+		link: 'https://app-seven-beta-73.vercel.app/',
+		role: 'Product Designer & Frontend Developer',
+		timeline: '2025',
 		challenge:
-			'The product needed live messaging with presence and history, but the team had no experience scaling WebSocket connections past a single server.',
+			'A waste-pickup service is a recurring subscription, so the app had to explain the value fast during onboarding and then make plan, payment and pickup status easy to check at a glance.',
 		solution:
-			'Designed a Socket.io layer backed by a Redis pub/sub adapter for horizontal scaling, persisted message history to MongoDB, and shipped an optimistic-update React client for instant-feeling sends.',
+			'Built a stepped onboarding flow with illustrated screens and a progress indicator, then a home surface where customers track their plan, manage payments and update pickups in one place.',
 		results:
-			'Scaled to 15,000 concurrent connections across a 3-node cluster with sub-100ms message delivery, and message history queries stayed fast via targeted indexes.',
-		gallery: [
-			'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80',
-			'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=1200&q=80',
-			'https://images.unsplash.com/photo-1587620931276-9a49b4257e7d?w=1200&q=80'
-		]
+			'A mobile-first flow that carries a new user from first screen to an active plan, with the recurring admin — payments and pickup changes — kept one tap away.',
+		gallery: [ecomintImg]
 	},
 	{
 		id: 4,
-		slug: 'multi-tenant-saas',
-		title: 'Multi-Tenant SaaS',
-		category: 'database',
-		year: '2022',
-		size: 'normal',
-		image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1200&q=80',
+		slug: 'foodieorder',
+		title: 'Foodieorder',
+		category: 'fullstack',
+		year: '2024',
+		size: 'wide',
+		image: foodieorderImg,
 		description:
-			'Complex multi-tenant architecture with row-level security, schema isolation and per-tenant billing.',
-		tech: ['Next.js', 'Prisma', 'PostgreSQL', 'Stripe'],
-		link: '#',
-		role: 'Lead Fullstack Engineer',
-		timeline: 'Nov 2021 — Feb 2022',
+			'Restaurant ordering app with a browsable menu, category filtering, a live cart and customer accounts.',
+		tech: ['React', 'Node.js', 'Express', 'MongoDB'],
+		link: 'https://my-restaurant-three.vercel.app/',
+		role: 'Fullstack Developer',
+		timeline: '2024',
 		challenge:
-			'An internal tool needed to become a multi-tenant SaaS product without risking cross-tenant data leaks or a costly database-per-tenant rewrite.',
+			'Customers browsing a menu online lose patience quickly — the menu needed to be filterable by dish type and the cart had to stay visible and accurate while they browsed.',
 		solution:
-			'Implemented PostgreSQL row-level security policies keyed on tenant ID, modeled billing per tenant with Stripe subscriptions, and used Prisma middleware to enforce tenant scoping on every query automatically.',
+			'Built a menu grid fed from the backend with toggleable category filters, a cart with a live item count pinned in the navigation, and account handling so orders belong to a signed-in customer.',
 		results:
-			'Shipped multi-tenancy with zero data-isolation incidents in production and onboarded the first 40 paying tenants within the first quarter.',
-		gallery: [
-			'https://images.unsplash.com/photo-1558002038-1055907df827?w=1200&q=80',
-			'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80'
-		]
+			'Diners can filter to a dish type, add items, and watch the cart update without leaving the menu — the browse-and-order loop stays on one page.',
+		gallery: [foodieorderImg]
 	},
 	{
 		id: 5,
-		slug: 'ci-cd-pipeline',
-		title: 'CI/CD Pipeline',
-		category: 'devops',
-		year: '2021',
+		slug: 'drc-joblist',
+		title: 'DRC JobList',
+		category: 'fullstack',
+		year: '2024',
 		size: 'normal',
-		image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&q=80',
+		image: joblistImg,
 		description:
-			'Fully automated deployment pipeline with testing, Docker builds, blue-green deploys and monitoring.',
-		tech: ['GitHub Actions', 'Docker', 'AWS ECS', 'Terraform'],
-		link: '#',
-		role: 'DevOps Engineer',
-		timeline: 'Jun 2021 — Sep 2021',
+			'Job board with keyword and location search, user accounts, and a dashboard for managing listings and applications.',
+		tech: ['React', 'Node.js', 'MongoDB', 'JWT'],
+		link: 'https://joblisting-project.vercel.app/',
+		role: 'Fullstack Developer',
+		timeline: '2024',
 		challenge:
-			'Deploys were manual, took an engineer out of their day for an hour, and rollbacks meant SSH-ing into boxes under pressure.',
+			'A job board is only useful if candidates can narrow a long list quickly, and if posters have somewhere to manage what they have published.',
 		solution:
-			'Wrote Terraform for the whole AWS ECS footprint, built a GitHub Actions pipeline that tests, builds and pushes Docker images, and implemented blue-green deploys with automated health-check rollback.',
+			'Put a combined keyword-and-location search directly in the hero so filtering starts on arrival, and built registration, login and a dashboard behind it for managing listings and applications.',
 		results:
-			'Deploy time dropped from ~45 minutes to under 6, rollbacks became a one-click action, and the team shipped 3x more often within a month.',
-		gallery: [
-			'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&q=80',
-			'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80'
-		]
+			'Search is the first thing on the page rather than something to scroll for, and both sides of the marketplace work from their own dashboard.',
+		gallery: [joblistImg]
 	},
 	{
 		id: 6,
-		slug: 'analytics-dashboard',
-		title: 'Analytics Dashboard',
-		category: 'web',
-		year: '2021',
-		size: 'wide',
-		image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80',
-		description: 'Data-heavy analytics dashboard with real-time charts, custom reports and CSV export.',
-		tech: ['React', 'Node.js', 'PostgreSQL', 'Chart.js'],
-		link: '#',
-		role: 'Fullstack Engineer',
-		timeline: 'Jan 2021 — Apr 2021',
+		slug: 'tasker',
+		title: 'Tasker',
+		category: 'fullstack',
+		year: '2023',
+		size: 'normal',
+		image: taskerImg,
+		description:
+			'Task management and reminder app with authenticated accounts and a personal dashboard for tracking what is due.',
+		tech: ['React', 'Node.js', 'MongoDB', 'JWT'],
+		link: 'https://adeshola-task-reminder.netlify.app/',
+		role: 'Fullstack Developer',
+		timeline: '2023',
 		challenge:
-			'Stakeholders were pulling numbers from raw SQL exports because the existing dashboard couldn\'t handle custom date ranges or large datasets without freezing the browser.',
+			"A to-do list stops being useful the moment tasks vanish on refresh or live only on one device — tasks had to persist and belong to a specific person.",
 		solution:
-			'Rebuilt the dashboard with server-side aggregation in PostgreSQL, virtualized Chart.js rendering for large series, and added a custom report builder with CSV export.',
+			'Added sign-up and sign-in with token-based auth, persisted every task against its owner, and built a dashboard where a signed-in user sees only their own tasks and reminders.',
 		results:
-			'Dashboard load time went from ~8s to under 900ms on the largest accounts, and ad-hoc SQL requests to the data team dropped to near zero.',
-		gallery: [
-			'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80',
-			'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
-			'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80'
-		]
+			'Tasks survive across sessions and devices, and each account gets a private dashboard rather than a list scoped to one browser.',
+		gallery: [taskerImg]
+	},
+	{
+		id: 7,
+		slug: 'vanlife',
+		title: '#VANLIFE',
+		category: 'frontend',
+		year: '2022',
+		size: 'wide',
+		image: vanlifeImg,
+		description:
+			'Van rental marketplace with a filterable van catalogue, detail pages, and a protected host area for managing listings.',
+		tech: ['React', 'React Router', 'Vite'],
+		link: 'https://react-test-tau-five.vercel.app/',
+		role: 'Frontend Developer',
+		timeline: '2022',
+		challenge:
+			'The app needed nested layouts, filtered list views and a host section that stays closed to anyone who is not signed in — all handled on the client.',
+		solution:
+			'Built the whole thing on React Router with nested routes and shared layouts, search-param-driven filtering on the van catalogue, and route guards that redirect anonymous visitors to sign-in before the host dashboard renders.',
+		results:
+			'Filters live in the URL, so a filtered view of the catalogue is shareable and survives a refresh, and the host area stays behind an auth redirect.',
+		gallery: [vanlifeImg]
 	}
 ];
 

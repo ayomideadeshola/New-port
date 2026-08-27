@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import profilePhoto from '../../assets/profileay-avatar.jpeg';
 import { useTextScramble } from '../../hooks/useTextScramble';
 import { MagneticButton } from '../motion/MagneticButton';
 import CodeTerminal from './CodeTerminal';
@@ -13,16 +14,19 @@ export default function Hero() {
 			<div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:px-8">
 				<div>
 					<motion.div
-						initial={{ opacity: 0, y: 10 }}
+						initial={{ opacity: 0, y: 12 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5 }}
-						className="mb-8 inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/10 px-4 py-1.5"
+						className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 py-1.5 pr-5 pl-1.5"
 					>
-						<span className="relative flex h-2 w-2">
-							<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75" />
-							<span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
+						<img
+							src={profilePhoto}
+							alt="Ayomide Adeshola"
+							className="h-10 w-10 rounded-full object-cover object-top"
+						/>
+						<span className="text-sm font-medium text-text-secondary">
+							Hi, I'm Ayomide — fullstack developer
 						</span>
-						<span className="font-mono text-xs tracking-wide text-success">Available for work</span>
 					</motion.div>
 
 					<h1 className="mb-6 min-h-[168px] text-5xl leading-[1.05] font-extrabold tracking-tight text-text sm:text-6xl md:min-h-[220px] md:text-7xl">

@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import sideImg from '../../assets/sideimg.png';
+import profilePhoto from '../../assets/profileay-portrait.jpeg';
 import { Reveal } from '../motion/Reveal';
 
 export default function AboutHero() {
@@ -15,7 +15,7 @@ export default function AboutHero() {
 					<div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10">
 						<motion.img
 							style={{ y }}
-							src={sideImg}
+							src={profilePhoto}
 							alt="Ayomide Adeshola"
 							className="h-[120%] w-full object-cover"
 						/>

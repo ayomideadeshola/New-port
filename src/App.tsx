@@ -1,6 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import CustomCursor from './components/CustomCursor';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import PageTransition from './components/PageTransition';
@@ -19,7 +18,6 @@ export default function App() {
 	return (
 		<div className="relative min-h-screen bg-ink text-text">
 			<ParticleBackground />
-			<CustomCursor />
 			<ScrollToTop />
 			<Nav />
 
