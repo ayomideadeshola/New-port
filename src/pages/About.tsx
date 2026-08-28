@@ -1,5 +1,6 @@
 import AboutHero from '../components/about/AboutHero';
 import BeyondCode from '../components/about/BeyondCode';
+import Certifications from '../components/about/Certifications';
 import SkillsCloud from '../components/about/SkillsCloud';
 import TestimonialsCarousel from '../components/about/TestimonialsCarousel';
 import Timeline from '../components/about/Timeline';
@@ -10,6 +11,7 @@ export default function About() {
 			<AboutHero />
 			<Timeline />
 			<SkillsCloud />
+			<Certifications />
 			<BeyondCode />
 			<TestimonialsCarousel />
 		</>

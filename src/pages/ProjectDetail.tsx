@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ExternalLink, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Reveal } from '../components/motion/Reveal';
 import { projects } from '../data';
@@ -124,7 +125,8 @@ export default function ProjectDetail() {
 				</span>
 			</Link>
 
-			<AnimatePresence>
+			{createPortal(
+				<AnimatePresence>
 				{lightbox && (
 					<motion.div
 						initial={{ opacity: 0 }}
@@ -149,7 +151,9 @@ export default function ProjectDetail() {
 						/>
 					</motion.div>
 				)}
-			</AnimatePresence>
+			</AnimatePresence>,
+				document.body
+			)}
 		</article>
 	);
 }

@@ -50,6 +50,17 @@ export interface TimelineMilestone {
 	description: string;
 }
 
+export interface Certification {
+	title: string;
+	issuer: string;
+	date: string;
+	grade: string;
+	credentialId: string;
+	covers: string[];
+	/** Scan of the physical certificate, shown in a lightbox when present. */
+	image?: string;
+}
+
 export interface BeyondCodePhoto {
 	src: string;
 	caption: string;
@@ -330,6 +341,57 @@ export const testimonials: Testimonial[] = [
 		content:
 			"The best fullstack developer I've worked with — he owns the whole stack and communicates clearly.",
 		avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80'
+	}
+];
+
+export const resumeUrl = '/resume.pdf';
+
+const certificateScans = import.meta.glob('./assets/certificates/*.{jpeg,jpg,png,webp}', {
+	eager: true,
+	import: 'default'
+}) as Record<string, string>;
+
+function scanFor(slug: string): string | undefined {
+	return Object.entries(certificateScans).find(([path]) => path.includes(`/${slug}.`))?.[1];
+}
+
+export const certifications: Certification[] = [
+	{
+		title: 'Certificate of Completion — Software Engineering',
+		issuer: 'SQI College of ICT',
+		date: 'October 2025',
+		grade: 'Highly Commendable Performance',
+		credentialId: 'CCON 220141',
+		covers: [
+			'HTML',
+			'CSS',
+			'Bootstrap',
+			'JavaScript',
+			'React.js',
+			'Angular',
+			'Vue.js',
+			'Next.js',
+			'Node.js',
+			'PHP',
+			'Laravel',
+			'GraphQL',
+			'Git & GitHub',
+			'Firebase',
+			'MongoDB',
+			'SQL',
+			'Cloud Operations',
+			'Data Structures & Algorithms'
+		],
+		image: scanFor('software-engineering')
+	},
+	{
+		title: 'National Innovation Diploma — Computer Software Engineering',
+		issuer: 'SQI College of ICT, Ogbomoso, Oyo State',
+		date: '29 October 2024',
+		grade: 'Upper Credit',
+		credentialId: 'CCON 220141',
+		covers: ['Web Development', 'Software Architecture'],
+		image: scanFor('national-diploma')
 	}
 ];
 
