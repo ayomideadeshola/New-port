@@ -10,11 +10,10 @@ dist-ssr
 Thumbs.db
 
 # Env
-.env
-.env.*
 !.env.example
 !.env.test
 
 # Vite / TS
 vite.config.ts.timestamp-*
 *.tsbuildinfo
+config.bat

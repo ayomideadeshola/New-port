@@ -36,21 +36,23 @@ export default function Certifications() {
 				<div className="space-y-5">
 					{certifications.map((cert) => (
 						<Reveal key={cert.title}>
-							<div className="rounded-2xl border border-white/10 bg-surface p-6 transition-colors duration-300 hover:border-accent/30 sm:p-8">
-								<div className="mb-5 flex flex-wrap items-start gap-4">
-									<span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent">
-										<Award size={18} />
-									</span>
-									<div className="min-w-0 flex-1">
-										<h3 className="text-lg font-bold text-text">{cert.title}</h3>
-										<p className="mt-1 text-sm text-text-secondary">{cert.issuer}</p>
+							<div className="rounded-2xl border border-white/10 bg-surface p-5 transition-colors duration-300 hover:border-accent/30 sm:p-8">
+								<div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start">
+									<div className="flex min-w-0 flex-1 items-start gap-3 sm:gap-4">
+										<span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent sm:h-10 sm:w-10">
+											<Award size={18} />
+										</span>
+										<div className="min-w-0">
+											<h3 className="text-base font-bold text-balance text-text sm:text-lg">{cert.title}</h3>
+											<p className="mt-1 text-sm text-text-secondary">{cert.issuer}</p>
+										</div>
 									</div>
 
 									{cert.image && (
 										<button
 											onClick={() => setLightbox(cert.image!)}
 											data-cursor-hover
-											className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-4 py-2 font-mono text-xs tracking-wide text-text-secondary transition-colors hover:border-accent/50 hover:text-text"
+											className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-4 py-2.5 font-mono text-xs tracking-wide text-text-secondary transition-colors hover:border-accent/50 hover:text-text sm:w-auto sm:shrink-0 sm:py-2"
 										>
 											<Eye size={14} />
 											View certificate
